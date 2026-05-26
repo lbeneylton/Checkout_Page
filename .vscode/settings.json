@@ -1,12 +1,7 @@
 // Para evitar: Import could not be resolved do Pylance
 {
-    "python.analysis.extraPaths": [
-        "./src"
-    ],
     "python-envs.defaultEnvManager": "ms-python.python:poetry",
-    "python-envs.defaultPackageManager": "ms-python.python:poetry"
-
+    "python-envs.defaultPackageManager": "ms-python.python:poetry",
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
-
-    "python.analysis.typeCheckingMode": "basic"
+    "python.useEnvironmentsExtension": true
 }
