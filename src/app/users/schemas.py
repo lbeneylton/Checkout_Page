@@ -10,5 +10,5 @@ class UserCreate(BaseModel):
 
 
 class UserResponse(BaseModel):
-    id: int
+    user_id: int
     email: EmailStr
