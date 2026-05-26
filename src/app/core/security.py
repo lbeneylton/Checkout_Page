@@ -1,7 +1,7 @@
 """Cria contexto da senha com algortimo de criptografia argon2
 E com possibilidade futura de usar novos algoritmos futuros."""
 from argon2 import PasswordHasher
-from exceptions import PasswordError
+from src.app.core.exceptions import PasswordError
 
 
 # Criando o contexto da senha, o esquema de hash utilizado é o bcrypt
