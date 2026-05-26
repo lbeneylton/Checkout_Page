@@ -6,10 +6,11 @@ from sqlalchemy import pool
 from alembic import context
 
 # -- IMPORTAÇÕES DO APP --
-from app.core.config import settings  # Instancia de configurações
-from app.database.base import Base  # Base dos models com seus os metadados
+from src.app.core.config import settings  # Instancia de configurações
+from src.app.database.base import Base  # Base dos models com seus os metadados
 
-import app.database.models  # Importação dos models para não gerar migration vazia
+# Importação dos models para não gerar migration vazia
+import src.app.database.models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
