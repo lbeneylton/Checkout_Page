@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     database_url: str
     secret_key: str
     asaas_api_key: str
+    algorithm: str
 
     model_config = SettingsConfigDict(
         env_file=".env",
