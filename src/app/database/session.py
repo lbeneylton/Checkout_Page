@@ -12,7 +12,7 @@ URL_DATABASE = settings.database_url
 engine = create_engine(
     URL_DATABASE,
     pool_pre_ping=True,  # Faz verificação se a conexão está morta
-    echo=True  # True apenas para dev
+    echo=False  # True apenas para dev
 )
 
 # Defininco a fabrica de sessões, Session Factory
