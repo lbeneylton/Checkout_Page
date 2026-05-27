@@ -1,17 +1,13 @@
 from datetime import datetime
 from decimal import Decimal
-from enum import Enum
+
 
 from sqlalchemy import DateTime, Numeric, Enum as SAEnum, ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.app.database.base import Base
 
-
-class OrderStatus(str, Enum):
-    pending = "pending"
-    paid = "paid"
-    canceled = "canceled"
+from src.app.orders.enums import OrderStatus
 
 
 class Order(Base):

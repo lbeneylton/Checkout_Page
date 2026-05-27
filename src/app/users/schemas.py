@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
+from src.app.users.enums import RoleType
 
 
 class UserCreate(BaseModel):
@@ -7,6 +8,7 @@ class UserCreate(BaseModel):
         min_length=8,
         max_length=64
     )
+    role: RoleType = RoleType.client
 
 
 class UserResponse(BaseModel):
