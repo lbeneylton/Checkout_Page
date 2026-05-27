@@ -18,6 +18,7 @@ def get_auth_service(session=Depends(get_session)) -> AuthService:
     return AuthService(UserRepository(session))
 
 
+# Ajustar depois desacoplar, usar dependei do user
 def get_current_user(
     credentials=Depends(security),
     session=Depends(get_session)

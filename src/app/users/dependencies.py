@@ -1,7 +1,8 @@
 from fastapi import Depends
+from src.app.core.dependencies import get_session
+
 from src.app.users.repository import UserRepository
 from src.app.users.service import UserService
-from src.app.core.dependencies import get_session
 
 
 def get_user_repository(session=Depends(get_session)) -> UserRepository:
