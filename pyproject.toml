@@ -21,7 +21,7 @@ dependencies = [
     "email-validator (>=2.3.0,<3.0.0)",
     "argon2-cffi (>=25.1.0,<26.0.0)",
     "psycopg2 (>=2.9.12,<3.0.0)",
-    "authlib (>=1.7.2,<2.0.0)"
+    "authlib (>=1.7.2,<2.0.0)",
 ]
 
 [tool.poetry]
