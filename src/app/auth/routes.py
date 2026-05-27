@@ -1,25 +1,19 @@
 from fastapi import APIRouter, Depends
 
 from src.app.auth.service import AuthService
-from src.app.users.repository import UserRepository
-from src.app.core.dependencies import get_session
+from src.app.auth.dependencies import get_auth_service
 
-from src.app.auth.schema import LoginRequest
+from src.app.auth.schema import LoginRequest, JWTResponse
 
 auth_router = APIRouter()
 
 
-@auth_router.post("/login")
+@auth_router.post("/login", response_model=JWTResponse)
 def login(
     data: LoginRequest,
-    session=Depends(get_session)
+    service: AuthService = Depends(get_auth_service)
 ):
-    repo = UserRepository(session)
-    auth_service = AuthService(repo)
-
-    result = auth_service.login(
+    return service.login(
         email=data.email,
         password=data.password
     )
-
-    return result

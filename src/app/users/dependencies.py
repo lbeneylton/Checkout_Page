@@ -4,6 +4,11 @@ from src.app.users.service import UserService
 from src.app.core.dependencies import get_session
 
 
-def get_user_service(session=Depends(get_session)) -> UserService:
-    repository = UserRepository(session)
+def get_user_repository(session=Depends(get_session)) -> UserRepository:
+    return UserRepository(session)
+
+
+def get_user_service(
+    repository: UserRepository = Depends(get_user_repository),
+) -> UserService:
     return UserService(repository)
