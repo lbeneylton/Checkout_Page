@@ -3,7 +3,7 @@ from fastapi import Depends
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 
-from src.app.core.jwt import decode_token
+from app.core.security.jwt import decode_token
 
 from src.app.users.repository import UserRepository
 from src.app.users.models import User

@@ -14,7 +14,7 @@ class UserRepository:
         logger.debug("Repositorio de usuario criado")
         self.session = session
 
-    def _active_query(self):
+    def _active_only(self):
         return select(User).where(User.deleted_at.is_(None))
 
     def create(self, user: User) -> User:
@@ -23,12 +23,12 @@ class UserRepository:
 
     def get_active_by_id(self, user_id: int) -> User | None:
         return self.session.execute(
-            self._active_query().where(User.user_id == user_id)
+            self._active_only().where(User.user_id == user_id)
         ).scalar_one_or_none()
 
     def get_active_by_email(self, email: str) -> User | None:
         return self.session.execute(
-            self._active_query().where(User.email == email)
+            self._active_only().where(User.email == email)
         ).scalar_one_or_none()
 
     def delete(self, user_id: int):  # sem commit

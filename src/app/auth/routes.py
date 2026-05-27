@@ -5,7 +5,7 @@ from src.app.auth.dependencies import get_auth_service
 
 from src.app.auth.schema import LoginRequest, JWTResponse
 
-auth_router = APIRouter()
+auth_router = APIRouter(prefix="/auth")
 
 
 @auth_router.post("/login", response_model=JWTResponse)

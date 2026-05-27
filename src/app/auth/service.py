@@ -1,7 +1,7 @@
 from src.app.users.repository import UserRepository
 
-from src.app.core.hash import verify_password
-from src.app.core.jwt import create_access_token
+from app.core.security.password import verify_password
+from app.core.security.jwt import create_access_token
 
 
 class AuthService:
