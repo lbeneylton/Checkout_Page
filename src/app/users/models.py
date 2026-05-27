@@ -2,10 +2,16 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
-from app.database.base import Base
+from src.app.database.base import Base
 
 
 class User(Base):
+    """
+    user_id : int primary key
+    email: str unique not null
+    password_hash: str not null
+    """
+
     __tablename__ = "users"
 
     user_id: Mapped[int] = mapped_column(
