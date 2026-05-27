@@ -14,31 +14,29 @@ class UserRepository:
         logger.debug("Repositorio de usuario criado")
         self.session = session
 
+    def _active_query(self):
+        return select(User).where(User.deleted_at.is_(None))
+
     def create(self, user: User) -> User:
         self.session.add(user)
         return user
 
-    def get_by_id(self, user_id: int) -> User | None:
+    def get_active_by_id(self, user_id: int) -> User | None:
         return self.session.execute(
-            select(User).where(
-                User.user_id == user_id,
-                User.deleted_at.is_(None)
-            )
+            self._active_query().where(User.user_id == user_id)
         ).scalar_one_or_none()
 
-    def get_by_email(self, email: str) -> User | None:
+    def get_active_by_email(self, email: str) -> User | None:
         return self.session.execute(
-            select(User).where(
-                User.email == email,
-                User.deleted_at.is_(None)
-            )
+            self._active_query().where(User.email == email)
         ).scalar_one_or_none()
 
     def delete(self, user_id: int):  # sem commit
-        user = self.get_by_id(user_id)
+        user = self.get_active_by_id(user_id)
 
         if not user:
             return None
 
         user.deleted_at = datetime.now(UTC)
+        self.session.add(user)
         return user

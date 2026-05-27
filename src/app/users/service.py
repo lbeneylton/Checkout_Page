@@ -1,5 +1,5 @@
 from src.app.core.exceptions import ConflictError
-from src.app.core.security import hash_password
+from app.core.hash import hash_password
 from src.app.users.models import User
 
 
