@@ -1,9 +1,16 @@
 from datetime import datetime
+from enum import Enum
 
-from sqlalchemy import String, DateTime, Integer, func
+from sqlalchemy import String, DateTime, Integer, Enum as SAEnum, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.app.database.base import Base
+
+
+class RoleType(str, Enum):
+    admin = "admin"
+    client = "client"
+    vendedor = "vendedor"
 
 
 class User(Base):
@@ -29,6 +36,11 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(
         String(255),
         nullable=False
+    )
+
+    role: Mapped[RoleType] = mapped_column(
+        SAEnum(RoleType, name="role_type"),
+        default=RoleType.client
     )
 
     created_at: Mapped[datetime] = mapped_column(
