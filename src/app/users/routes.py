@@ -3,10 +3,10 @@ from src.app.users.dependencies import get_user_service
 from src.app.users.schemas import UserCreate, UserResponse
 from src.app.users.service import UserService
 
-router = APIRouter()
+user_router = APIRouter()
 
 
-@router.post("/users", response_model=UserResponse)
+@user_router.post("/users", response_model=UserResponse)
 def create_user(
     data: UserCreate,
     service: UserService = Depends(get_user_service)
