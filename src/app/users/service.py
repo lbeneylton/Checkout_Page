@@ -8,7 +8,7 @@ class UserService:
         self.repository = repository
 
     def _ensure_email_available(self, email: str) -> None:
-        if self.repository.get_by_email(email):
+        if self.repository.get_active_by_email(email):
             raise ConflictError("Email já está em uso")
 
     def create_user(self, data) -> User:
