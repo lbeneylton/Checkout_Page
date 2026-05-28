@@ -23,6 +23,12 @@ class ProductRepository:
             .where(Product.product_id == product_id)
         ).scalar_one_or_none()
 
+    def get_active_by_name(self, name: str) -> Product | None:
+        return self.session.execute(
+            self._active_only()
+            .where(Product.name == name)
+        ).scalar_one_or_none()
+
     def list_active(self):
         return self.session.execute(
             self._active_only()

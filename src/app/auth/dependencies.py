@@ -8,7 +8,7 @@ from app.core.security.jwt import decode_token
 from src.app.users.repository import UserRepository
 from src.app.users.models import User
 
-from src.app.core.dependencies import get_session
+from infra.database.dependency import get_session
 
 
 security = HTTPBearer()

@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import String, DateTime, Integer, Enum as SAEnum, func
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.app.database.base import Base
+from infra.database.base import Base
 
 from src.app.users.enums import RoleType
 

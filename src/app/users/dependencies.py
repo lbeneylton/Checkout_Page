@@ -1,5 +1,5 @@
 from fastapi import Depends
-from src.app.core.dependencies import get_session
+from infra.database.dependency import get_session
 
 from src.app.users.repository import UserRepository
 from src.app.users.service import UserService

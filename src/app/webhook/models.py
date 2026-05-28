@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy import DateTime, String, Boolean, JSON, func
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.app.database.base import Base
+from infra.database.base import Base
 
 
 class WebhookEvent(Base):

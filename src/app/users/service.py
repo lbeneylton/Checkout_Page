@@ -1,10 +1,13 @@
-from src.app.core.exceptions import ConflictError
-from app.core.security.password import hash_password
+from src.app.users.repository import UserRepository
 from src.app.users.models import User
+
+from src.app.core.exceptions import ConflictError
+
+from app.core.security.password import hash_password
 
 
 class UserService:
-    def __init__(self, repository) -> None:
+    def __init__(self, repository: UserRepository) -> None:
         self.repository = repository
 
     def _ensure_email_available(self, email: str) -> None:

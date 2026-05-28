@@ -4,7 +4,7 @@ from enum import Enum
 from sqlalchemy import String, DateTime, ForeignKey, func, Enum as SAEnum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.app.database.base import Base
+from infra.database.base import Base
 
 
 class PaymentStatus(str, Enum):

@@ -5,7 +5,7 @@ from decimal import Decimal
 from sqlalchemy import DateTime, Numeric, Enum as SAEnum, ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.app.database.base import Base
+from infra.database.base import Base
 
 from src.app.orders.enums import OrderStatus
 

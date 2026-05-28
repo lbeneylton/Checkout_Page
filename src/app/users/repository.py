@@ -1,6 +1,7 @@
+from src.app.users.models import User
+
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from src.app.users.models import User
 
 from src.app.core.logger import logging
 

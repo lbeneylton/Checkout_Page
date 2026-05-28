@@ -2,13 +2,15 @@ from app.auth.dependencies import get_current_user
 from fastapi import Depends
 from fastapi import FastAPI
 
-from src.app.users.routes import user_router
 from src.app.auth.routes import auth_router
+from src.app.users.routes import user_router
+from src.app.products.routes import product_router
 
 app = FastAPI()
 
 app.include_router(user_router)
 app.include_router(auth_router)
+app.include_router(product_router)
 
 
 @app.get("/protected")
